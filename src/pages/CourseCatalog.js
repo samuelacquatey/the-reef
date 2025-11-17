@@ -19,59 +19,17 @@ const CourseCatalog = () => {
   const courses = [
     {
       id: 1,
-      title: "AI Robotics for African Agriculture",
-      description: "Learn to design and implement AI-powered robotic solutions to transform agricultural practices across Africa.",
-      category: "ai",
-      level: "Intermediate",
-      duration: "42h",
-      students: 8921,
+      title: "Intel Al Training Program for Teachers",
+      description: "Practical AI training for Educators of the future. Learn how to leverage cutting-edge ai tools to make teaching faster, easier and more effective.",
+      category: "Artificial Intelligence",
+      level: "Basic Familiarity with laptops or phones",
+      duration: "4h",
+      students: 71,
       rating: 4.7,
-      price: 79.99,
-      originalPrice: 129.99,
-      instructor: "Dr. Naledi Okoro",
-      image: "🌱"
-    },
-    {
-      id: 2,
-      title: "Industrial Automation & Smart Manufacturing",
-      description: "Master automation technologies for African manufacturing industries with practical, locally-relevant projects.",
-      category: "automation",
-      level: "Advanced",
-      duration: "36h",
-      students: 5432,
-      rating: 4.8,
-      price: 89.99,
-      originalPrice: 149.99,
-      instructor: "Eng. Chukwu",
-      image: "🏭"
-    },
-    {
-      id: 3,
-      title: "Machine Learning Fundamentals",
-      description: "Build strong foundations in machine learning with African case studies and real-world applications.",
-      category: "ai",
-      level: "Beginner",
-      duration: "28h",
-      students: 12457,
-      rating: 4.6,
-      price: 49.99,
-      originalPrice: 79.99,
-      instructor: "Dr. Adebayo",
-      image: "🧠"
-    },
-    {
-      id: 4,
-      title: "IoT Solutions for Smart Cities",
-      description: "Design and implement IoT systems for African urban challenges including energy, transportation, and infrastructure.",
-      category: "iot",
-      level: "Intermediate",
-      duration: "32h",
-      students: 6789,
-      rating: 4.5,
-      price: 69.99,
-      originalPrice: 99.99,
-      instructor: "Dr. Mensah",
-      image: "🏙️"
+      price: 249.99,
+      originalPrice: 309.99,
+      instructor: "Ms. Queen Mensah",
+      image: "../../crialogo.png"
     }
   ];
 

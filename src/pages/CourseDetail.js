@@ -10,32 +10,32 @@ const CourseDetail = () => {
   // Mock course data - in real app, this would come from API
   const course = {
     id: 1,
-    title: "AI Robotics for African Agriculture",
-    subtitle: "Learn to design and implement AI-powered robotic solutions to transform agricultural practices across Africa.",
+    title: "Intel Al Training Program for Teachers",
+    subtitle: "Practical AI training for Educators of the future. Learn how to leverage cutting-edge ai tools to make teaching faster, easier and more effective.",
     category: "AI & Robotics",
-    duration: "42 hours",
-    level: "Intermediate",
+    duration: "4 hours",
+    level: "Basic Familiarity with laptops or phones",
     languages: "English, French",
     lastUpdated: "March 2023",
     rating: 4.7,
-    totalRatings: 2348,
-    students: 8921,
+    totalRatings: 27,
+    students: 71,
     instructor: {
-      name: "Dr. Naledi Okoro",
-      title: "AI Research Lead at Coral Reef Innovation Africa",
-      rating: 4.8,
-      students: 12547,
+      name: "Ms. Queen Mensah",
+      title: "AI Training at Coral Reef Innovation Africa",
+      rating: 4.7,
+      students: 71,
       courses: 8
     },
-    price: 79.99,
-    originalPrice: 129.99,
+    price: 249.99,
+    originalPrice: 309.99,
     features: [
-      "42 hours of video content",
+      "4 hours of video content",
       "8 practical projects",
       "Certificate of completion",
-      "Access on mobile and TV",
-      "Lifetime access",
-      "African case studies"
+      "Access on mobile and Laptop",
+      "Opportunity to earn money through Coral Reef Innovation programs",
+      "Developed for the Ghanaian teacher success"
     ],
     curriculum: [
       {
@@ -386,7 +386,7 @@ const CourseDetail = () => {
               </button>
 
               <div style={{ textAlign: 'center', color: 'var(--text-light)', fontSize: '14px', marginTop: '15px' }}>
-                30-day money-back guarantee
+                
               </div>
             </div>
           </div>
