@@ -81,7 +81,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; 2025 Coral Reef Innovation Africa. Empowering the continent through technology education.</p>
+          <p>&copy; 2025 Coral Reef Innovation Africa. Empowering tomorrow, today!.</p>
         </div>
       </div>
     </footer>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Paystack Inline Payment</title>
+</head>
+<body>
+  <h2>Paystack Inline Payment Example</h2>
+  <input type="email" id="email" placeholder="Enter your email" />
+  <input type="number" id="amount" placeholder="Enter amount in Naira" />
+  <button onclick="payWithPaystack()">Pay Now</button>
+
+  <!-- Paystack inline script -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+
+  <script>
+    function payWithPaystack() {
+      const email = document.getElementById('email').value;
+      const amount = document.getElementById('amount').value * 100; // convert Naira to kobo
+
+      const handler = PaystackPop.setup({
+        key: 'YOUR_PUBLIC_KEY', // replace with your Test Public Key
+        email: email,
+        amount: amount,
+        currency: "NGN",
+        callback: function(response) {
+          alert('Payment successful! Reference: ' + response.reference);
+          // Here you can call your server to verify the payment
+        },
+        onClose: function() {
+          alert('Payment window closed.');
+        }
+      });
+      handler.openIframe();
+    }
+  </script>
+</body>
+</html>

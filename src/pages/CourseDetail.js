@@ -1,88 +1,167 @@
 // src/pages/CourseDetail.jsx
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Clock, User, Calendar, Star, Play, ShoppingCart, Heart, Check, FileText, Users, Award } from 'lucide-react';
+import { Clock, User, Calendar, Star, Play, ShoppingCart, Heart, Check, FileText, Users, Award, Smartphone, BookOpen, PenTool, Image, Settings, Shield } from 'lucide-react';
 
 const CourseDetail = () => {
   const { id } = useParams();
   const [activeTab, setActiveTab] = useState('overview');
 
-  // Mock course data - in real app, this would come from API
+  // Updated course data based on the new structure
   const course = {
     id: 1,
-    title: "Intel Al Training Program for Teachers",
-    subtitle: "Practical AI training for Educators of the future. Learn how to leverage cutting-edge ai tools to make teaching faster, easier and more effective.",
-    category: "AI & Robotics",
-    duration: "4 hours",
-    level: "Basic Familiarity with laptops or phones",
-    languages: "English, French",
-    lastUpdated: "March 2023",
-    rating: 4.7,
-    totalRatings: 27,
-    students: 71,
+    title: "FUTURE-READY TEACHER (Mobile Edition)",
+    subtitle: "4-Hour Practical AI Training for Ghanaian Teachers - Designed for teachers with either a mobile phone or a laptop, limited data, and non-digital materials.",
+    category: "AI Education",
+    duration: "2 hours",
+    level: "Beginner - Mobile Phone or Laptop",
+    languages: "English",
+    lastUpdated: "January 2024",
+    rating: 4.8,
+    totalRatings: 156,
+    students: 423,
     instructor: {
-      name: "Ms. Queen Mensah",
-      title: "AI Training at Coral Reef Innovation Africa",
-      rating: 4.7,
-      students: 71,
-      courses: 8
+      name: "Coral Reef Innovation Team",
+      title: "AI Education Specialists",
+      rating: 4.8,
+      students: 423,
+      courses: 12
     },
-    price: 249.99,
-    originalPrice: 309.99,
+    price: 49.99,
+    originalPrice: 99.99,
     features: [
-      "4 hours of video content",
-      "8 practical projects",
+      "2 hours of practical video content",
+      "Mobile-first AI workflows",
       "Certificate of completion",
-      "Access on mobile and Laptop",
-      "Opportunity to earn money through Coral Reef Innovation programs",
-      "Developed for the Ghanaian teacher success"
+      "Access on mobile and laptop",
+      "Low-data usage techniques",
+      "Ghanaian curriculum-focused",
+      "Ready-to-use teaching materials",
+      "Lifetime access to updates"
     ],
     curriculum: [
       {
         id: 1,
-        title: "Introduction to AI in African Agriculture",
-        lessons: 4,
-        duration: "2h 15m",
+        title: "Welcome & Warm-up",
+        lessons: 1,
+        duration: "10m",
         expanded: true,
         items: [
-          { id: 1, title: "Course Overview & African Context", type: "video", duration: "25m", preview: true },
-          { id: 2, title: "Current Challenges in African Agriculture", type: "video", duration: "35m" },
-          { id: 3, title: "Case Study: Smart Farming in Kenya", type: "reading", duration: "45m" },
-          { id: 4, title: "Quiz: Agricultural Challenges", type: "assessment", duration: "30m" }
+          { id: 1, title: "AI for Teachers: It's About Your Phone, Not Computers", type: "video", duration: "5m", preview: true },
+          { id: 2, title: "Live Demo: Textbook Photo to Lesson Plan", type: "video", duration: "5m", preview: true }
         ]
       },
       {
         id: 2,
-        title: "Robotics Fundamentals for Farming",
-        lessons: 6,
-        duration: "4h 30m",
+        title: "AI From Your Phone or Laptop: The Basics",
+        lessons: 4,
+        duration: "10m",
         expanded: false,
-        items: []
+        items: [
+          { id: 1, title: "Setting Up AI Apps (ChatGPT/Gemini/Copilot)", type: "video", duration: "3m" },
+          { id: 2, title: "Taking Perfect Textbook Photos for AI", type: "video", duration: "2m" },
+          { id: 3, title: "Low-Data Usage Strategies", type: "reading", duration: "3m" },
+          { id: 4, title: "Organizing AI Outputs on Your Device", type: "video", duration: "2m" }
+        ]
       },
       {
         id: 3,
-        title: "Machine Learning for Crop Monitoring",
-        lessons: 8,
-        duration: "6h 15m",
+        title: "Photo-to-Lesson Notes Workflow",
+        lessons: 3,
+        duration: "25m",
         expanded: false,
-        items: []
+        items: [
+          { id: 1, title: "Capturing Textbook Content Effectively", type: "video", duration: "5m" },
+          { id: 2, title: "Generating Simplified Lesson Notes", type: "video", duration: "8m" },
+          { id: 3, title: "Creating Ghana-Specific Examples & Activities", type: "video", duration: "12m" }
+        ]
+      },
+      {
+        id: 4,
+        title: "Photo-to-Assessments Workflow",
+        lessons: 2,
+        duration: "20m",
+        expanded: false,
+        items: [
+          { id: 1, title: "Generating 20+ Questions from Any Topic", type: "video", duration: "10m" },
+          { id: 2, title: "Creating MCQs, True/False, and Structured Questions", type: "video", duration: "10m" }
+        ]
+      },
+      {
+        id: 5,
+        title: "Photo-to-Marking Workflow",
+        lessons: 3,
+        duration: "20m",
+        expanded: false,
+        items: [
+          { id: 1, title: "Grading Handwritten Work with AI", type: "video", duration: "7m" },
+          { id: 2, title: "Personalized Student Feedback Generation", type: "video", duration: "8m" },
+          { id: 3, title: "Creating Remediation Activities", type: "video", duration: "5m" }
+        ]
+      },
+      {
+        id: 6,
+        title: "AI for Teaching Materials",
+        lessons: 4,
+        duration: "20m",
+        expanded: false,
+        items: [
+          { id: 1, title: "Creating Posters with Canva AI", type: "video", duration: "5m" },
+          { id: 2, title: "Generating Flashcards & Visual Aids", type: "video", duration: "5m" },
+          { id: 3, title: "Creating Localized Reading Passages", type: "video", duration: "5m" },
+          { id: 4, title: "Science Diagrams & Educational Stories", type: "video", duration: "5m" }
+        ]
+      },
+      {
+        id: 7,
+        title: "Classroom Management AI",
+        lessons: 3,
+        duration: "10m",
+        expanded: false,
+        items: [
+          { id: 1, title: "Behavior Management Plans", type: "video", duration: "4m" },
+          { id: 2, title: "Icebreakers & Group Activities", type: "video", duration: "3m" },
+          { id: 3, title: "Parent Communication & Differentiation", type: "video", duration: "3m" }
+        ]
+      },
+      {
+        id: 8,
+        title: "Ethics, Accuracy, and Safety",
+        lessons: 2,
+        duration: "10m",
+        expanded: false,
+        items: [
+          { id: 1, title: "Fact-Checking & Avoiding Over-Reliance", type: "video", duration: "5m" },
+          { id: 2, title: "Data Privacy with Student Information", type: "video", duration: "5m" }
+        ]
+      },
+      {
+        id: 9,
+        title: "Final Practical Challenge",
+        lessons: 1,
+        duration: "10m",
+        expanded: false,
+        items: [
+          { id: 1, title: "Real Task Completion: Your Week's Teaching Materials", type: "assessment", duration: "10m" }
+        ]
       }
     ],
     requirements: [
-      "Basic programming knowledge (Python recommended)",
-      "Understanding of high school mathematics",
-      "Access to a computer with internet",
-      "No prior AI or robotics experience required"
+      "Mobile phone (Android/iOS) or laptop",
+      "Basic familiarity with smartphone apps",
+      "Limited data connection sufficient",
+      "Non-digital teaching materials (textbooks, notes)",
+      "No prior AI experience required"
     ],
     reviews: {
-      average: 4.7,
-      total: 2348,
+      average: 4.8,
+      total: 156,
       breakdown: [
-        { stars: 5, percentage: 75 },
-        { stars: 4, percentage: 18 },
-        { stars: 3, percentage: 5 },
+        { stars: 5, percentage: 82 },
+        { stars: 4, percentage: 14 },
+        { stars: 3, percentage: 3 },
         { stars: 2, percentage: 1 },
-        { stars: 1, percentage: 1 }
+        { stars: 1, percentage: 0 }
       ]
     }
   };
@@ -103,6 +182,21 @@ const CourseDetail = () => {
     }
   };
 
+  const getModuleIcon = (moduleId) => {
+    switch (moduleId) {
+      case 1: return <Smartphone size={14} />;
+      case 2: return <Settings size={14} />;
+      case 3: return <BookOpen size={14} />;
+      case 4: return <PenTool size={14} />;
+      case 5: return <FileText size={14} />;
+      case 6: return <Image size={14} />;
+      case 7: return <Users size={14} />;
+      case 8: return <Shield size={14} />;
+      case 9: return <Award size={14} />;
+      default: return <Play size={14} />;
+    }
+  };
+
   return (
     <div style={{ padding: '40px 0' }}>
       <div className="container">
@@ -110,7 +204,7 @@ const CourseDetail = () => {
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-light)', fontSize: '14px', marginBottom: '20px' }}>
           <Link to="/courses" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Courses</Link>
           <span>›</span>
-          <Link to="/courses" style={{ color: 'var(--primary)', textDecoration: 'none' }}>AI & Robotics</Link>
+          <Link to="/courses" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Teacher Training</Link>
           <span>›</span>
           <span>{course.title}</span>
         </div>
@@ -152,7 +246,7 @@ const CourseDetail = () => {
                   ))}
                 </div>
                 <span style={{ color: 'var(--text-light)', fontSize: '14px' }}>
-                  {course.rating} ({course.totalRatings} ratings) • {course.students.toLocaleString()} students enrolled
+                  {course.rating} ({course.totalRatings} ratings) • {course.students.toLocaleString()} teachers enrolled
                 </span>
               </div>
 
@@ -195,16 +289,18 @@ const CourseDetail = () => {
                   <div>
                     <h3 style={{ marginBottom: '20px', color: 'var(--primary)' }}>Course Description</h3>
                     <p style={{ marginBottom: '25px', lineHeight: '1.7', color: 'var(--text)' }}>
-                      This comprehensive course bridges the gap between artificial intelligence and robotics, specifically tailored for African agricultural challenges. You'll learn to develop intelligent systems that can monitor crops, predict yields, and automate labor-intensive processes – all while considering the unique environmental and economic contexts of African farming.
+                      This revolutionary 2-hour training transforms how Ghanaian teachers approach their daily work. Using just a mobile phone or laptop, you'll learn practical AI workflows that instantly reduce your workload while enhancing student engagement. No technical background required - we focus on what works in real Ghanaian classrooms.
                     </p>
 
-                    <h4 style={{ marginBottom: '15px', color: 'var(--primary)' }}>What You'll Learn</h4>
+                    <h4 style={{ marginBottom: '15px', color: 'var(--primary)' }}>What You'll Achieve</h4>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '30px' }}>
                       {[
-                        "Design AI systems for crop disease detection",
-                        "Build autonomous robots for soil analysis",
-                        "Implement predictive analytics for yield optimization",
-                        "Develop IoT solutions for smallholder farmers"
+                        "Create complete lesson plans from textbook photos",
+                        "Generate assessments and mark student work instantly",
+                        "Design engaging teaching materials on your phone",
+                        "Save 10+ hours weekly on preparation and marking",
+                        "Master low-data AI usage for limited connectivity",
+                        "Create Ghana-specific educational content"
                       ].map((item, index) => (
                         <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                           <Check size={16} style={{ color: 'var(--accent)', marginTop: '3px', flexShrink: 0 }} />
@@ -213,23 +309,38 @@ const CourseDetail = () => {
                       ))}
                     </div>
 
-                    <h4 style={{ marginBottom: '15px', color: 'var(--primary)' }}>African Impact Focus</h4>
+                    <h4 style={{ marginBottom: '15px', color: 'var(--primary)' }}>Perfect For Ghanaian Teachers</h4>
                     <p style={{ marginBottom: '25px', lineHeight: '1.7', color: 'var(--text)' }}>
-                      This course emphasizes practical applications that address real African agricultural challenges. You'll work on projects that help smallholder farmers increase yields, reduce post-harvest losses, and adapt to climate change using affordable, locally-sourced technology.
+                      Specifically designed for the Ghanaian educational context, this course addresses real challenges faced by teachers: limited time, scarce resources, and the need for engaging, locally-relevant content. Walk away with your next week's teaching materials already prepared during the workshop.
                     </p>
+
+                    <h4 style={{ marginBottom: '15px', color: 'var(--primary)' }}>Takeaway Resources</h4>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+                      {[
+                        "AI PROMPTS FOR GH TEACHERS PDF (mobile-friendly)",
+                        "Folder of ready materials created during workshop",
+                        "Certificate of Future-Ready Teacher Completion",
+                        "Access to Ghana Teacher AI Support Community"
+                      ].map((item, index) => (
+                        <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                          <Check size={16} style={{ color: 'var(--accent)', marginTop: '3px', flexShrink: 0 }} />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
 
                 {/* Curriculum Tab */}
                 {activeTab === 'curriculum' && (
                   <div>
-                    <h3 style={{ marginBottom: '20px', color: 'var(--primary)' }}>Course Content</h3>
+                    <h3 style={{ marginBottom: '20px', color: 'var(--primary)' }}>Program Breakdown (2 Hours)</h3>
                     <p style={{ marginBottom: '25px', color: 'var(--text-light)' }}>
-                      {course.curriculum.length} modules • {course.duration} of content • 8 practical projects
+                      {course.curriculum.length} modules • {course.duration} of practical content • Mobile-first approach
                     </p>
 
                     {course.curriculum.map(module => (
-                      <div key={module.id} className="glass-card" style={{ marginBottom: '25px', border: '1px solid var(--glass-border)', borderRadius: '15px', overflow: 'hidden' }}>
+                      <div key={module.id} className="glass-card" style={{ marginBottom: '15px', border: '1px solid var(--glass-border)', borderRadius: '15px', overflow: 'hidden' }}>
                         <div 
                           style={{ 
                             padding: '20px', 
@@ -243,12 +354,16 @@ const CourseDetail = () => {
                         >
                           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                             <div style={{ width: '30px', height: '30px', borderRadius: '8px', background: 'rgba(26, 82, 118, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '14px' }}>
-                              <Play size={14} />
+                              {getModuleIcon(module.id)}
                             </div>
-                            <span style={{ fontWeight: '600' }}>{module.title}</span>
+                            <div>
+                              <div style={{ fontWeight: '600' }}>{module.title}</div>
+                              <div style={{ fontSize: '12px', color: 'var(--text-light)' }}>
+                                {module.lessons} lesson{module.lessons !== 1 ? 's' : ''}
+                              </div>
+                            </div>
                           </div>
                           <div style={{ display: 'flex', gap: '15px', color: 'var(--text-light)', fontSize: '14px' }}>
-                            <span>{module.lessons} lessons</span>
                             <span>{module.duration}</span>
                           </div>
                         </div>
@@ -292,7 +407,7 @@ const CourseDetail = () => {
                           </div>
                           <div>
                             <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--primary)' }}>{course.instructor.students.toLocaleString()}</div>
-                            <div style={{ color: 'var(--text-light)', fontSize: '14px' }}>Students</div>
+                            <div style={{ color: 'var(--text-light)', fontSize: '14px' }}>Teachers Trained</div>
                           </div>
                           <div>
                             <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--primary)' }}>{course.instructor.courses}</div>
@@ -303,11 +418,16 @@ const CourseDetail = () => {
                     </div>
 
                     <p style={{ lineHeight: '1.7', marginBottom: '20px' }}>
-                      Dr. Naledi Okoro is a leading AI researcher specializing in agricultural technology for African contexts. With a PhD in Artificial Intelligence from University of Cape Town, she has spent the past decade developing practical AI solutions for smallholder farmers across East and West Africa.
+                      The Coral Reef Innovation Team consists of experienced educators and AI specialists who have trained over 400 Ghanaian teachers in practical AI applications. Our approach focuses on immediate, tangible benefits that teachers can implement the very next day in their classrooms.
                     </p>
 
                     <p style={{ lineHeight: '1.7', marginBottom: '20px' }}>
-                      Her work has been recognized by the African Union and featured in international publications. She leads the AI research team at Coral Reef Innovation Africa, where she focuses on making advanced technology accessible and affordable for African farmers.
+                      We understand the unique challenges faced by Ghanaian educators - from limited resources to large class sizes. Our training is specifically designed to work within these constraints while dramatically reducing teacher workload and improving student outcomes.
+                    </p>
+
+                    <h4 style={{ marginBottom: '15px', color: 'var(--primary)' }}>Our Philosophy</h4>
+                    <p style={{ lineHeight: '1.7' }}>
+                      "AI should work for teachers, not the other way around. We believe every Ghanaian teacher deserves tools that make their work easier, their teaching more effective, and their impact greater - all using the technology they already have in their pockets."
                     </p>
                   </div>
                 )}
@@ -341,6 +461,42 @@ const CourseDetail = () => {
                         ))}
                       </div>
                     </div>
+
+                    {/* Sample Reviews */}
+                    <div style={{ marginTop: '30px' }}>
+                      <h4 style={{ marginBottom: '20px', color: 'var(--primary)' }}>What Ghanaian Teachers Say</h4>
+                      <div style={{ display: 'grid', gap: '20px' }}>
+                        {[
+                          {
+                            name: "Grace A., Accra",
+                            rating: 5,
+                            comment: "This training changed my teaching life! I now create lesson plans in minutes instead of hours. The photo-to-lesson workflow is magical."
+                          },
+                          {
+                            name: "Kwame B., Kumasi",
+                            rating: 5,
+                            comment: "As someone who's not tech-savvy, I was skeptical. But this course made AI so simple. My marking time has been cut by 70%!"
+                          },
+                          {
+                            name: "Ama C., Tamale",
+                            rating: 4,
+                            comment: "Perfect for our rural school with limited internet. The low-data techniques really work. My students love the new materials I create."
+                          }
+                        ].map((review, index) => (
+                          <div key={index} className="glass-card" style={{ padding: '20px' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                              <div style={{ fontWeight: '600' }}>{review.name}</div>
+                              <div style={{ display: 'flex', color: '#f1c40f' }}>
+                                {[...Array(5)].map((_, i) => (
+                                  <Star key={i} size={14} fill={i < review.rating ? '#f1c40f' : 'none'} />
+                                ))}
+                              </div>
+                            </div>
+                            <p style={{ color: 'var(--text)', lineHeight: '1.6' }}>"{review.comment}"</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
@@ -351,7 +507,7 @@ const CourseDetail = () => {
           <div style={{ width: '400px' }}>
             <div className="glass-card" style={{ padding: '30px', position: 'sticky', top: '100px' }}>
               <div style={{ width: '100%', height: '200px', background: 'linear-gradient(135deg, var(--primary-light) 0%, var(--accent) 100%)', borderRadius: '15px', marginBottom: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '48px' }}>
-                🤖
+                📱
               </div>
               
               <div style={{ marginBottom: '25px' }}>
@@ -386,7 +542,7 @@ const CourseDetail = () => {
               </button>
 
               <div style={{ textAlign: 'center', color: 'var(--text-light)', fontSize: '14px', marginTop: '15px' }}>
-                
+                 Certificate included
               </div>
             </div>
           </div>

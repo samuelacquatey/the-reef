@@ -8,6 +8,8 @@ import CourseCatalog from './pages/CourseCatalog';
 import CourseDetail from './pages/CourseDetail';
 import CourseContent from './pages/CourseContent';
 import Quiz from './pages/Quiz';
+import AdminUpload from './pages/AdminUpload'; // Added import
+import ChatWidget from './components/ChatWidget';
 import './App.css';
 
 function App() {
@@ -22,8 +24,10 @@ function App() {
             <Route path="/course/:id" element={<CourseDetail />} />
             <Route path="/learn/:courseId/:lessonId" element={<CourseContent />} />
             <Route path="/quiz/:courseId" element={<Quiz />} />
+            <Route path="/admin/upload" element={<AdminUpload />} /> {/* Added route */}
           </Routes>
         </main>
+        <ChatWidget />
         <Footer />
       </div>
     </Router>
