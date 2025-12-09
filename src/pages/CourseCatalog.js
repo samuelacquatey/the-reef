@@ -15,9 +15,16 @@ const CourseCatalog = () => {
       try {
         const response = await fetch(`${process.env.REACT_APP_API_URL}/api/courses`);
         const data = await response.json();
-        setCourses(data);
+
+        if (Array.isArray(data)) {
+          setCourses(data);
+        } else {
+          console.error('API returned invalid data format:', data);
+          setCourses([]);
+        }
       } catch (error) {
         console.error('Error fetching courses:', error);
+        setCourses([]);
       } finally {
         setLoading(false);
       }
@@ -136,11 +143,11 @@ const CourseCatalog = () => {
 
                     <div style={{ textAlign: 'right', minWidth: '120px' }}>
                       <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--primary)', marginBottom: '5px' }}>
-                        ${course.price}
+                        Ghc{course.price}
                       </div>
                       {course.originalPrice && (
                         <div style={{ fontSize: '14px', color: 'var(--text-light)', textDecoration: 'line-through' }}>
-                          ${course.originalPrice}
+                          Ghc{course.originalPrice}
                         </div>
                       )}
                       {course.originalPrice && (

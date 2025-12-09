@@ -17,6 +17,7 @@ const AdminUpload = () => {
 
     const [currentModule, setCurrentModule] = useState({ title: '', lessons: [] });
     const [currentLesson, setCurrentLesson] = useState({ title: '', duration: '', videoFile: null });
+    const [imageFile, setImageFile] = useState(null);
     const [uploading, setUploading] = useState(false);
     const [message, setMessage] = useState('');
 
@@ -30,6 +31,10 @@ const AdminUpload = () => {
 
     const handleFileChange = (e) => {
         setCurrentLesson({ ...currentLesson, videoFile: e.target.files[0] });
+    };
+
+    const handleImageChange = (e) => {
+        setImageFile(e.target.files[0]);
     };
 
     const addLesson = () => {
@@ -79,7 +84,13 @@ const AdminUpload = () => {
         setMessage('');
 
         try {
-            // 1. Upload all video files first
+            // 1. Upload course image if provided
+            let imageUrl = courseData.image;
+            if (imageFile) {
+                imageUrl = await uploadFile(imageFile);
+            }
+
+            // 2. Upload all video files
             const modulesWithUploads = await Promise.all(courseData.modules.map(async (mod) => {
                 const lessonsWithUploads = await Promise.all(mod.lessons.map(async (lesson) => {
                     if (lesson.videoFile) {
@@ -95,8 +106,8 @@ const AdminUpload = () => {
                 return { ...mod, lessons: lessonsWithUploads };
             }));
 
-            // 2. Submit course data
-            const finalCourseData = { ...courseData, modules: modulesWithUploads };
+            // 3. Submit course data with image URL
+            const finalCourseData = { ...courseData, modules: modulesWithUploads, image: imageUrl };
 
             await axios.post(`${process.env.REACT_APP_API_URL}/api/courses`, finalCourseData);
 
@@ -112,6 +123,7 @@ const AdminUpload = () => {
                 image: '',
                 modules: []
             });
+            setImageFile(null);
         } catch (error) {
             setMessage('Error creating course: ' + (error.response?.data?.message || error.message));
         } finally {
@@ -157,6 +169,34 @@ const AdminUpload = () => {
                     </div>
 
                     <textarea className="form-control" name="description" placeholder="Course Description" value={courseData.description} onChange={handleCourseChange} required style={{ width: '100%', padding: '10px', borderRadius: '5px', border: '1px solid #ddd', marginBottom: '20px', minHeight: '100px' }} />
+
+                    {/* Course Image Upload */}
+                    <div style={{ marginBottom: '20px' }}>
+                        <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: 'var(--primary)' }}>
+                            Course Thumbnail Image
+                        </label>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            style={{
+                                width: '100%',
+                                padding: '10px',
+                                borderRadius: '5px',
+                                border: '1px solid #ddd',
+                                cursor: 'pointer'
+                            }}
+                        />
+                        {imageFile && (
+                            <p style={{ marginTop: '8px', fontSize: '13px', color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                                <Upload size={14} />
+                                Selected: {imageFile.name}
+                            </p>
+                        )}
+                        <p style={{ marginTop: '5px', fontSize: '12px', color: 'var(--text-light)' }}>
+                            Recommended: 800x600px, JPG or PNG, max 2MB
+                        </p>
+                    </div>
 
                     {/* Module Builder */}
                     <div style={{ border: '1px solid #eee', padding: '20px', borderRadius: '10px', marginBottom: '20px' }}>

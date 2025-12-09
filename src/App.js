@@ -8,7 +8,7 @@ import CourseCatalog from './pages/CourseCatalog';
 import CourseDetail from './pages/CourseDetail';
 import CourseContent from './pages/CourseContent';
 import Quiz from './pages/Quiz';
-import AdminUpload from './pages/AdminUpload'; // Added import
+import AdminUpload from './admin/AdminUpload'; // Added import
 import ChatWidget from './components/ChatWidget';
 import './App.css';
 
